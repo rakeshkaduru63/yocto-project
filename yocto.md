@@ -137,7 +137,9 @@ This is the **heart of the process**, made up of:
 ---
 
 
-https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.yoctoproject.org%2F1.4.4%2Fyocto-project-qs%2Fyocto-project-qs.html&psig=AOvVaw31gDIFwK6MGE1Ds8Sp0n-W&ust=1752552526790000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjz04m9u44DFQAAAAAdAAAAABAE
+
+![Uploading image.png…]()
+
 ## 🔄 Flow Summary
 
 1. Write or gather source code.  
