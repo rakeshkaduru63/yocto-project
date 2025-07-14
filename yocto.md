@@ -138,7 +138,7 @@ This is the **heart of the process**, made up of:
 
 
 
-![Uploading image.png…]()
+
 
 ## 🔄 Flow Summary
 
@@ -152,6 +152,8 @@ This is the **heart of the process**, made up of:
 ---
 
 ✅ Result: A lightweight, efficient, and customized Linux OS image ready to run on your embedded device.
+
+<img width="984" height="482" alt="image" src="https://github.com/user-attachments/assets/dcc273fb-a502-4d84-b49b-76fe45a44b48" />
 
 
 # 🔄 Flow Diagram Explanation: Yocto Project
