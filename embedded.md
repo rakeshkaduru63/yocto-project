@@ -125,5 +125,73 @@ This board goes into an **embedded product** such as:
 
 ---
 
+<img width="1920" height="987" alt="Screenshot 2025-07-20 191622" src="https://github.com/user-attachments/assets/f4febfcd-c950-47cf-be98-52d61e7304ff" />
+
+# 🧠 Embedded System from Software Perspective (Detailed)
+
+In an embedded system, **hardware and software work together** to perform a **specific function**.  
+While the hardware is built using chips like **CPU, RAM, and Storage**, the software **controls how these chips function**.
+
+---
+
+## 🔌 Essential Chips on a Board
+
+Every embedded board includes **multiple chips**, and the most important ones are:
+
+### 🧠 CPU / ASIC / FPGA
+- Acts as the **brain of the system**
+- Runs the **operating system**, executes code, and handles tasks
+- Could be **general-purpose (CPU)** or **application-specific (ASIC)**
+
+### 💾 Storage (Flash Memory)
+- Stores the **system image**, **firmware**, **bootloader**, and **application data**
+- **Non-volatile** – data stays even when power is off
+
+### 🧮 RAM (Temporary Memory)
+- Used for **fast access and execution**
+- **Temporary** – cleared when the system is powered off
+- Loads apps and the operating system during runtime
+
+### 🔌 Other Chips (Optional but Important)
+- **Ethernet / USB Controllers** – for communication and data transfer
+- **Wi-Fi, Bluetooth, GPS** – for wireless functionality
+- **Power Management ICs (PMICs)** – manage power supply to all chips
+
+---
+
+## ⚙️ Software Flashing Process
+
+To make the system work, you need to **flash software images (firmware)** to each chip:
+
+- **Flashing CPU** – Loads the **bootloader** and **operating system**
+- **Flashing Storage** – Stores **system files**, **drivers**, and **updates**
+- **Flashing RAM** – Loads **running applications** and **active processes**
+
+✅ This ensures each chip is **configured correctly**, and the **entire system operates reliably**.
+
+---
+
+## 🧱 Software Architecture (Layer by Layer)
+
+| Software Layer | Description |
+|----------------|-------------|
+| **Kernel**     | Core component of the OS. Manages **CPU**, **memory**, **process scheduling**, and **I/O**. |
+| **Drivers**    | Allow the **kernel** to talk to **hardware** (e.g., display, audio, storage). |
+| **C Library**  | Provides **system-level functions** (like `open()`, `read()`, `malloc()`, etc.). |
+| **Libraries**  | Help applications and services reuse code. Examples: **networking**, **graphics**. |
+| **Services**   | Background **daemons** (e.g., `systemd`, Android’s `system_server`) handle system tasks. |
+| **Applications** | Front-end programs (UI or logic) that perform tasks like **camera**, **settings**, or **games**. |
+
+---
+
+## ✅ Final Points
+
+- Without software, the hardware is **inactive**
+- Flashing the **correct image to each chip** is **critical** for functionality
+- A working embedded system must be able to:
+  - ✅ **Boot properly**
+  - ✅ **Run applications**
+  - ✅ **Manage hardware efficiently**
+  - ✅ **Utilize resources** (CPU, memory) correctly
 
 
