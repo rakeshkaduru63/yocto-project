@@ -315,3 +315,20 @@ Both systems share a similar foundation:
 - **System Call Interface**
 - **Libraries, Services, Applications** (but customized in Embedded Linux)
 
+
+| Feature                  | **Desktop Linux**                                                    | **Embedded Linux**                                                      |
+|--------------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **Purpose**              | General-purpose computing (e.g., laptops, PCs)                       | Task-specific (e.g., routers, smart TVs, automotive systems)            |
+| **User Interface**       | Full-featured GUI (GNOME, KDE)                                       | Minimal UI or no UI (CLI or custom UI like touchscreen)                 |
+| **Resources (CPU, RAM)** | Requires more resources                                              | Designed to run on low-power, low-memory hardware                       |
+| **System Services**      | Many background services (e.g., printing, networking, notifications) | Only essential services are included (e.g., networking, Bluetooth)      |
+| **Boot Time**            | Slower (10+ seconds, depending on the distro)                        | Fast boot (1–3 seconds often)                                           |
+| **Filesystem Size**      | Hundreds of MBs to GBs                                               | Often < 100 MB (can be < 10 MB with BusyBox or uClibc)                  |
+| **Real-Time Support**    | Not suitable for real-time tasks by default                          | Often uses real-time patches (e.g., PREEMPT_RT)                         |
+| **Package Management**   | Uses package managers like `apt`, `dnf`, `pacman`                    | Often no package manager; software is cross-compiled and deployed       |
+| **Kernel Customization** | Generic kernel with broad hardware support                           | Highly customized kernel for specific hardware                          |
+| **Upgradability**        | Supports regular updates and upgrades                                | Rarely updated; image is often read-only or minimal updates are applied |
+| **Examples**             | Ubuntu, Fedora, Debian                                               | Yocto, Buildroot, OpenWRT, Android (customized)                         |
+| **Connectivity**         | Ethernet, WiFi, Bluetooth, etc.                                      | May support custom interfaces (CAN, Zigbee, RS232, etc.)                |
+| **Security**             | Standard user-based security                                         | Often hardened, sometimes with SELinux, AppArmor or custom lockdowns    |
+
