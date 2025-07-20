@@ -68,6 +68,82 @@ Each major component is often managed by its **own embedded system**.
 Each of these components acts like a **mini embedded system**, working together to make the smartphone smart and responsive.
 
 
+<img width="847" height="459" alt="image" src="https://github.com/user-attachments/assets/e69bb256-fcbe-4524-bf59-816cd1e59a20" />
+# Intruder Detection System: Design Options
+
+## ✅ 1. Option One: Generic Purpose Computer
+
+**Approach**:  
+Use a generic computer, attach a camera, and develop an OpenCV application to detect intruders and send Wi-Fi commands.
+
+### ✅ Pros:
+- Development time is significantly lower due to fewer limitations compared to embedded systems.
+
+### ❌ Cons:
+- Cannot be presented as a product to a customer.
+- Has many unused features beyond intruder detection.
+- Prone to security risks.
+- Takes up a large space.
+- Boots very slow due to running a full operating system.
+- Significantly expensive.
+
+### 📌 Conclusion:
+> This approach is **not feasible** for a product.
+
+---
+
+<img width="469" height="350" alt="image" src="https://github.com/user-attachments/assets/3e2e3c65-43b7-4a8a-99d7-229b3c4158e7" />
+
+
+## ✅ 2. Option Two: Raspberry Pi
+
+**Approach**:  
+Use a Raspberry Pi as the processing unit.
+
+### ✅ Pros:
+- Significantly reduced cost.
+- Can be put into an enclosure box.
+
+### ❌ Cons:
+- Still not entirely optimized.
+- Has unused hardware elements like:
+  - Ethernet controller/port  
+  - USB controller/ports  
+  - HDMI controller/port
+
+### 📌 Conclusion:
+> While better, further **cost reduction and compactness** are possible.
+
+---
+<img width="380" height="231" alt="image" src="https://github.com/user-attachments/assets/7992d769-e929-4e13-a18f-0bd5411126ba" />        <img width="492" height="231" alt="image" src="https://github.com/user-attachments/assets/4669d333-4d92-4599-93c4-edf3891a4ca6" />
+
+
+## ✅ 3. Option Three: Custom Embedded System
+
+**Approach**:  
+Hardware designers create a **custom PCB** based on Raspberry Pi 5’s design, removing unnecessary ports (HDMI, Ethernet, USB) and embedding essential components like a Wi-Fi chip. Embedded software developers then write the custom software.
+
+### ✅ Pros:
+- Significantly reduced cost.
+- Option to embed camera modules directly into the PCB.
+- Achieves maximum price optimization when producing **millions of units**.
+- Results in a product with **only specific features** (removal of generic hardware/software).
+
+### ❌ Cons:
+- Increased overall development **cost and time** because creating a new product is complex.
+- Software development can take longer due to limitations with ARM processors commonly used in embedded systems.
+
+---
+
+## 🌟 Overall Impact:
+**Embedded systems** simplify lives and are found everywhere.  
+They are *cleverly designed* to serve a specific purpose using:
+- Complex OS (Linux, Android)  
+- Or simpler microcontrollers (bare-metal or RTOS-based)
+
+
+
+
 <img width="1920" height="1080" alt="Screenshot 2025-07-20 184208" src="https://github.com/user-attachments/assets/5644fdc9-07f2-4460-b657-040f989a3143" />
 
 
