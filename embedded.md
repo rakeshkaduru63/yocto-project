@@ -64,3 +64,7 @@ Each major component is often managed by its **own embedded system**.
 
 Each of these components acts like a **mini embedded system**, working together to make the smartphone smart and responsive.
 
+
+<img width="1920" height="1080" alt="Screenshot 2025-07-20 184208" src="https://github.com/user-attachments/assets/5644fdc9-07f2-4460-b657-040f989a3143" />
+
+
