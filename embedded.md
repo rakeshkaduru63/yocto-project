@@ -76,6 +76,12 @@ Silicon is **purified and processed** to create **transistors** — the building
 
 ---
 
+
+<!--
+The term "transistor" is a portmanteau of "transfer" and "resistor".
+A transistor is a semiconductor device that can amplify or switch electronic signals and electrical power.
+-->
+
 ## ⚙️ 2. Transistor Made of Silicon
 A **transistor** is a tiny electronic switch.  
 **Billions** of these are combined to make **integrated circuits (ICs)** or **chips**.  
