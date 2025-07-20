@@ -201,3 +201,117 @@ To make the system work, you need to **flash software images (firmware)** to eac
   - ✅ **Utilize resources** (CPU, memory) correctly
 
 
+
+<img width="1920" height="1080" alt="Screenshot 2025-07-20 194129" src="https://github.com/user-attachments/assets/cbf062ab-3555-4b1b-b6e1-5bf48497faf4" />
+
+# 🖥️ Desktop Linux
+
+## 1. Linux Kernel (The Core of the Operating System)
+The Linux Kernel is the central component of the Linux operating system.  
+It acts as a bridge between the hardware and user applications, managing system resources and ensuring secure, efficient operations.
+
+### 🔧 Responsibilities:
+- **Process management**
+- **Memory management (MMU)**
+- **Device management**
+- **Inter-process communication (IPC)**
+- **Debugging support**
+
+---
+
+## 2. Drivers (Interface Between Hardware and Kernel)
+Device drivers are software modules that allow the kernel and user space to communicate with hardware.
+
+### 🧩 Types of Drivers:
+- **USB devices**
+- **Buses**
+- **PCIe devices**
+- **Chip drivers**
+
+---
+
+## 🔧 Middleware Layer
+
+### 3. System Call Interface
+Acts as a bridge between **user space** and **kernel space**.  
+Libraries and services use this to request kernel-level operations.
+
+### 4. Libraries
+Provide reusable functions for applications and services:
+- `libboost` (C++ support)
+- `C lib` (standard C functions)
+- GUI-related libraries like **Qt5**
+
+### 5. Services
+Background daemons and system-level services:
+- `systemd` (system and service manager)
+- **Network and Bluetooth services**
+
+---
+
+## 🖥️ User Space / Application Layer
+
+### 6. Applications
+GUI or command-line apps (e.g., browsers, editors)  
+Rely on services and libraries.
+
+### 7. Compositor
+GUI rendering system like **X11** or **Wayland** for managing windows.
+
+### 8. Desktop Manager  
+Provides the graphical user interface (GUI) shell for user interaction with the system.
+
+- **GNOME**: GNU Network Object Model Environment  
+- **KDE**: K Desktop Environment
+
+
+
+
+<img width="1920" height="1014" alt="Screenshot 2025-07-20 194107" src="https://github.com/user-attachments/assets/fe05f133-1294-4eae-a305-3b33e6045919" />
+
+
+
+
+# 🟢 Embedded Linux (Left Side)
+
+**Embedded Linux** is tailored for specific tasks like running on infotainment systems or smart devices.
+
+## ✅ Added Software
+
+- **Infotainment App**: A custom user interface for specific applications (like in vehicles).
+- **Display Service**: Lightweight UI rendering service.
+- **Communication Services & Libraries**: Handle Bluetooth, CAN bus, or serial communication.
+- **Media Library**: For playing audio/video in infotainment.
+- **Touchscreen Driver**: Replaces keyboard input.
+- **Virtual Keyboard**: For touch input.
+- **Driver for Buttons**: Physical button support (volume, power, etc.).
+- **FM Tuner Driver**: For radio functionality.
+- **Custom C Library / Boot Animation / Config**: Lightweight or stripped-down alternatives to desktop libraries.
+- **Debugging Utilities**: Only relevant or minimal ones are kept.
+
+---
+
+# 🔴 Removed Software (Right Side)
+
+To optimize for performance, storage, and power, many Desktop Linux components are removed.
+
+## ❌ Removed or Unused
+
+- **Desktop Manager**: Not needed in headless or minimal GUI environments.
+- **Unused Apps**: Not required (e.g., browsers, text editors).
+- **Compositor (X11/Wayland)**: Removed to reduce memory/CPU usage.
+- **systemd**: Often replaced with lightweight alternatives.
+- **Unused Services / Libraries / Drivers**: Any that aren’t required for the specific embedded function are stripped out.
+- **WiFi Drivers / Keyboard Drivers**: May be removed if the device uses touch and no WiFi.
+
+---
+
+# ⚙️ Common Core (Middle Section)
+
+Both systems share a similar foundation:
+
+- **Linux Kernel**
+- **Drivers**
+- **System Call Interface**
+- **Libraries, Services, Applications** (but customized in Embedded Linux)
+
