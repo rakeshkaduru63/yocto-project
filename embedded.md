@@ -15,6 +15,9 @@ An **embedded system** is a combination of **software and hardware** designed to
 
 ---
 
+
+<img width="1920" height="993" alt="Screenshot 2025-07-21 002554" src="https://github.com/user-attachments/assets/8fb94dd5-11d7-4a16-a6ca-ff9d9f5d087d" />
+
 ## 📱 Example: Smartphone
 
 A **smartphone** is a **complex device** that functions as a large system, containing **multiple embedded systems** inside.  
