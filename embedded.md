@@ -68,3 +68,62 @@ Each of these components acts like a **mini embedded system**, working together 
 <img width="1920" height="1080" alt="Screenshot 2025-07-20 184208" src="https://github.com/user-attachments/assets/5644fdc9-07f2-4460-b657-040f989a3143" />
 
 
+# 🔧 Embedded System from Hardware Perspective
+
+## 🧱 1. Starts from Sand
+The journey begins with **sand**, which contains **silicon**.  
+Silicon is **purified and processed** to create **transistors** — the building blocks of all digital electronics.
+
+---
+
+## ⚙️ 2. Transistor Made of Silicon
+A **transistor** is a tiny electronic switch.  
+**Billions** of these are combined to make **integrated circuits (ICs)** or **chips**.  
+Transistors are essential for **processing and storing data**.
+
+---
+
+## 🧠 3. Layout Design
+Engineers create a **layout design** of the chip using **software tools**.  
+This design decides how **millions/billions of transistors** are connected and how **data flows**.
+
+---
+
+## 💾 4. Chip Creation
+The layout is used to **manufacture the chip** (e.g., **Rockchip RK3399**).  
+This chip acts as the **brain of the embedded system** and includes:
+- CPU
+- GPU
+- Memory controller
+- Other processing units
+
+---
+
+## 🔌 5. PCB Design (Printed Circuit Board)
+The chip is placed onto a **PCB**, which connects all components together.  
+PCB design includes:
+- Tracks (wires)
+- Power lines
+- Connectors (e.g., USB, HDMI)
+
+It ensures **communication** between chip, memory, sensors, and other parts.
+
+---
+
+## 🖥️ 6. Board Assembly
+The final **embedded board** contains:
+- The chip  
+- **Memory** (RAM/Flash)  
+- **Power circuits**  
+- **Connectors** (USB, HDMI, etc.)
+
+This board goes into an **embedded product** such as:
+- Smartphone
+- Washing machine
+- Drone
+- Smart camera
+
+---
+
+
+
