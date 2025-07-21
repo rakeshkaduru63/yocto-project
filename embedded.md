@@ -69,6 +69,12 @@ Each of these components acts like a **mini embedded system**, working together 
 
 
 <img width="847" height="459" alt="image" src="https://github.com/user-attachments/assets/e69bb256-fcbe-4524-bf59-816cd1e59a20" />
+
+
+##SECURITY SYSTEM->ring my phone when somebody is at my door
+
+
+
 # Intruder Detection System: Design Options
 
 ## ✅ 1. Option One: Generic Purpose Computer
