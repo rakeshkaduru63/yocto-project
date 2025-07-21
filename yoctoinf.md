@@ -1,82 +1,92 @@
-Poky Source Directory Overview (Yocto Project)
+# BitBake and Yocto Project Concepts
 
-The Poky source tree includes several important directories and files. Here's what each does:
+## What is BitBake?
+BitBake is a build engine that performs tasks such as:
+- Fetching
+- Unpacking
+- Compiling
+- Packaging
+- Generating final images
 
-Ὄ1 bitbake/
+It reads **recipes** and generates the final system image.
 
-Contains all the Python scripts used by BitBake (the build engine).
+Key Configuration Files:
+- `local.conf`
+- `bblayers.conf`
+- `bin/` → Library part
 
-bitbake/bin is added to the system PATH so that the bitbake command can be executed.
+---
 
-Includes:
+## What is Metadata?
+Metadata refers to build instructions and includes:
+- Configuration files
+- Recipes (`.bb`, `.bbappend`)
+- Classes (`.bbclass`)
+- Includes (`.inc`)
 
-Bitbake parser
+---
 
-Task scheduler
+## What are Recipes?
+A **recipe** is a set of instructions that BitBake reads and processes.
 
-Fetchers and UI handlers
+It defines how to fetch, configure, compile, install, and package software.
 
-Ὄ1 documentation/
+---
 
-Contains all source files used to generate official Yocto Project documentation.
+## What are Configuration Files?
+Files that hold:
+- Global variable definitions
+- User-defined variables
+- Hardware configuration information
 
-Can be built into PDF or HTML manuals.
+---
 
-Written in reStructuredText (.rst) format using Sphinx.
+## What are Layers?
+A **layer** is a collection of related recipes.
 
-Ὄ1 meta/
+Types of Layers:
+- Predefined layers
+- User-defined layers
 
-Contains the OpenEmbedded-Core (OE-Core) metadata.
+### Why Layers?
+Layers provide a mechanism to isolate metadata based on functionality.
+Examples:
+- Distro layer → `meta-poky`
+- BSP layer → `meta-raspberrypi`
+- Middleware layer → `meta-oe`
+- UI layer → `meta-vt5`
+- Custom layers
 
-Includes core recipes, classes, and configuration files.
+**Dropbear**: Directly connects the board over Wi-Fi.
 
-Provides:
+---
 
-Compiler tools (gcc, binutils)
+## Which Layers are Used by the Poky Build System?
+`BBLAYERS` variable in `build/conf/bblayers.conf` lists the layers used by BitBake.
 
-Base libraries and packages
+---
 
-Core image definitions
+## Yocto Project Compatible Layers
+These layers are tested and fully compatible with the Yocto Project.
 
-Ὄ1 meta-poky/
+---
 
-Holds configuration for the Poky reference distribution.
+## What is a Class?
+Class files (`.bbclass`) abstract common functionality for reuse across multiple recipes.
 
-Defines distro-level settings like poky.conf.
+To use a class, the recipe must **inherit** it.
 
-Adds on top of meta/ to form a working reference distro.
+### Examples:
+- `cmake.bbclass`: Handles CMake in recipes
+- `kernel.bbclass`: Handles kernel building and tree management
+- `module.bbclass`: Supports building out-of-tree Linux kernel modules
 
-Ὄ1 meta-skeleton/
+---
 
-A template layer for creating new recipes, BSPs, and kernel configurations.
+## What is a Package?
+A **package** is a binary file (e.g., `.rpm`, `.deb`, `.ipk`).
 
-Good for developers starting their own layers.
+A single recipe can produce many packages.
 
-Ὄ1 meta-yocto-bsp/
-
-Maintains Board Support Packages (BSPs) for:
-
-BeagleBone
-
-EdgeRouter
-
-Generic IA (x86) 32-bit and 64-bit machines
-
-Contains machine configuration, device trees, and kernel settings.
-
-Ὄ1 scripts/
-
-Holds helper scripts for:
-
-Setting up the build environment (oe-init-build-env)
-
-Creating layers and BSPs
-
-Flashing images to target boards
-
-Ὄ4 LICENSE
-
-The license under which Poky is distributed (usually MIT).
-
-Also includes licenses for components from other projects.
+All packages from a recipe are listed in the `PACKAGES` variable.
 
