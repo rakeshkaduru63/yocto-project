@@ -154,6 +154,130 @@ This is the **heart of the process**, made up of:
 ✅ Result: A lightweight, efficient, and customized Linux OS image ready to run on your embedded device.
 
 <img width="984" height="482" alt="image" src="https://github.com/user-attachments/assets/dcc273fb-a502-4d84-b49b-76fe45a44b48" />
+# 🧱 Yocto Project Architecture – Theory Breakdown
+
+## 🔶 1. Upstream Project Releases / Local Projects / SCMs
+These are the sources of software (code) used in the build process.
+
+### Upstream Project Releases
+Source code from open-source communities (e.g., Linux kernel from kernel.org, BusyBox).  
+**Example**: Downloading glibc source from GNU servers.
+
+### Local Projects
+Your own project code stored locally.  
+Locally developed applications or utilities not available online.  
+**Example**: Your own app stored at `/home/user/myapp`.
+
+### SCMs (Source Control Management) (Optional)
+Fetching source from Git, SVN, etc.  
+**Example**: Pulling kernel code from GitHub using:
+```bitbake
+SRC_URI = "git://github.com/torvalds/linux.git;branch=main"
+```
+
+### Source Mirror(s)
+Used for caching. BitBake tries to download from here first.  
+**Example**: Local mirror `/downloads/` to avoid repeated downloads.
+
+✅ All these sources are mirrored into Source Mirror(s) for reuse and network efficiency.
+
+---
+
+## 2. Inputs / Metadata (Brown Blocks on Left)
+These define how the system is built:
+
+### User Configuration
+Configuration file like `local.conf` contains user-defined build settings (target machine, image features, etc.).  
+**Example**:
+```conf
+MACHINE = "qemuarm"
+```
+
+### Metadata (Recipes + Patches)
+Collection of files that describe how to build software.
+
+- Recipes (`.bb`, `.bbappend`)
+- Classes (`.bbclass`)
+- Includes (`.inc`)
+- Patches
+
+**Example**: A recipe `hello.bb` builds a Hello World application.
+
+### Machine (BSP) Configuration
+Board-specific settings like device trees, kernel configurations.  
+**Example**: `meta-raspberrypi` defines:
+```conf
+MACHINE = "raspberrypi4"
+```
+
+### Policy Configuration
+Rules affecting build policies (package formats, licensing).  
+**Example**: In `distro/poky.conf`:
+```conf
+INHERIT += "license"
+```
+
+---
+
+## 🧱 Middle Section: BitBake Build System
+Each box here is a task BitBake performs to build software.
+
+### 🔹 Source Fetching
+Downloads source files from URIs.  
+**Example**: `wget`, `git clone`
+
+### 🔹 Patch Application
+Applies patches listed in `SRC_URI`.  
+**Example**: Fixes a bug in upstream source.
+
+### 🔹 Configuration / Compile / Autoreconf
+Runs config scripts and compiles code.  
+**Example**: Running `./configure` and `make` for busybox.
+
+### 🔹 Output Analysis for Package Splitting
+Analyzes built files and splits them.  
+**Example**: busybox split into:
+- busybox
+- busybox-dev
+- busybox-doc
+
+---
+
+## 📦 4. Package Generation
+Build output is converted into standard package formats:
+
+- `.rpm` – RedHat
+- `.deb` – Debian
+- `.ipk` – Lightweight (for embedded Linux)
+
+🔄 Packages are stored in **Package Feeds**.
+
+---
+
+## ✅ 5. QA Tests
+BitBake runs checks like file validation, dependency resolution, etc.
+
+---
+
+## 📸 6. Image Generation
+Combines packages into a bootable image:
+
+- `.wic`
+- `.iso`
+- `.sdimg`
+
+---
+
+## 🛠️ 7. SDK Generation
+Creates SDKs for app development outside the build environment.
+
+---
+
+## 🟥 8. Output
+Final outputs of the build process:
+
+- **Images**: Bootable root filesystem images
+- **SDK**: Cross-development toolkits
 
 
 # 🔄 Flow Diagram Explanation: Yocto Project
