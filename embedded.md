@@ -342,15 +342,33 @@ Background daemons and system-level services:
 ### 6. Applications
 GUI or command-line apps (e.g., browsers, editors)  
 Rely on services and libraries.
+## 7. Compositor
 
-### 7. Compositor
-GUI rendering system like **X11** or **Wayland** for managing windows.
+A **compositor** is part of the windowing system that draws windows and manages visual effects like transparency, shadows, and animations.
 
-### 8. Desktop Manager  
-Provides the graphical user interface (GUI) shell for user interaction with the system.
+### Examples:
+- **X11 (X.Org Server)** – Traditional window system, requires a separate compositor (e.g., *compton*, *xcompmgr*).
+- **Wayland** – Modern alternative to X11 with built-in compositing (e.g., *Weston*, *Mutter*, *KWin*).
 
-- **GNOME**: GNU Network Object Model Environment  
-- **KDE**: K Desktop Environment
+**Role:** Manages how windows are drawn and interact visually on the screen (overlap, transitions, etc.).
+
+---
+
+## 8. Desktop Environment (Desktop Manager)
+
+A **Desktop Environment (DE)** provides the complete graphical user interface (GUI) shell for user interaction with the system. It includes components like the desktop shell, panels, file manager, settings, and themes.
+
+### Popular Desktop Environments:
+
+### GNOME (GNU Network Object Model Environment)
+- Default on many Linux distributions (e.g., Fedora, Ubuntu).
+- Uses **Mutter** as its window manager and compositor.
+- Focuses on a clean, simple, modern design.
+
+### KDE (K Desktop Environment)
+- Now known as **KDE Plasma**.
+- Uses **KWin** as the window manager and compositor.
+- Highly customizable with a more traditional desktop layout.
 
 
 
