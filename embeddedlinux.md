@@ -274,6 +274,103 @@ It directly communicates with all hardware components through buses and controll
    ↓
 [User-space apps run using hardware interfaces]
 ```
+# 🐧 How Linux Boots – Simplified Explanation
+
+---
+
+## ⚡️ 1. Power Up
+
+- Electrical power is supplied to the system.
+- CPU and other components (RAM, storage, peripherals) receive voltage.
+- The CPU starts executing code from **Boot ROM** (typically stored in SoC).
+- This code usually initializes the **Bootloader**.
+
+---
+
+## 🧰 2. Bootloader Stage
+
+Bootloader is typically divided into two parts:
+
+### 🔹 Primary Bootloader (Stage 1)
+
+- Resides in ROM or the first sector of storage.
+- Initializes core components:
+  - CPU
+  - Minimal RAM setup
+  - Basic clock, etc.
+
+### 🔸 Secondary Bootloader (Stage 2)
+
+- Loaded by the primary bootloader into RAM.
+- More capable — initializes:
+  - Full RAM
+  - Storage devices (eMMC, SD card, NAND/NOR Flash)
+  - Optional peripherals (PCIe, Ethernet, GPU)
+- Loads the **Linux kernel** into RAM
+- Loads **Device Tree Blob (DTB)** — describes hardware layout
+- Optionally loads:
+  - **GPU firmware**
+  - **initrd/initramfs** (RAM disk)
+- Finally, jumps to the **kernel's entry point**
+
+---
+
+## 🧠 3. Linux Kernel Stage
+
+- Starts running in protected mode (ARM or x86 depending on architecture).
+- Key tasks:
+  - Mount `initrd` (optional temporary root filesystem)
+  - Initialize kernel subsystems:
+    - Memory management
+    - Scheduler
+    - VFS (Virtual File System)
+    - IPC (Inter-Process Communication)
+  - Load drivers using information from **Device Tree**
+  - Starts the `init` process (PID 1)
+
+---
+
+## 🧱 4. Linux Userspace
+
+- `init` system (e.g., **systemd**, **SysVinit**, or **upstart**) takes over.
+- Reads system configuration files (`/etc/`)
+- Launches:
+  - Services (network, display manager, logging)
+  - Shell or desktop environment
+  - User applications
+
+---
+
+## 🟢 5. Application Ready
+
+- After services are initialized, applications can run.
+- System is fully operational.
+- Total boot time varies depending on:
+  - Optimizations
+  - Bootloader/kernel size
+  - Hardware speed
+
+---
+
+## ⏱️ Example Boot Time Flow
+
+| Stage           | Time    | Notes                          |
+|------------------|---------|--------------------------------|
+| Power Up         | ~1s     | Depends on hardware startup    |
+| Bootloader       | ~2-3s   | Includes kernel + DTB loading  |
+| Kernel Init      | ~1-2s   | Mount, driver init, etc.       |
+| Userspace Init   | ~5-10s  | Depends on init system         |
+| **Total**        | ~8-15s  | Can be reduced with tuning     |
+
+---
+
+## 🔧 Notes for Optimization
+
+- Disable unused kernel drivers.
+- Use minimal `initramfs`.
+- Parallelize service startup (e.g., with `systemd`).
+- Use fast storage (eMMC over SD).
+- Optimize bootloader configuration (e.g., U-Boot script).
 
 
 
