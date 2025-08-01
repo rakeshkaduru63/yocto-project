@@ -1,3 +1,4 @@
+<img width="1920" height="1080" alt="Screenshot 2025-08-01 095441" src="https://github.com/user-attachments/assets/234503d2-e2f0-4921-8546-4527e6c0fc63" />
 
 # Embedded Linux Architecture Overview
 
@@ -86,6 +87,7 @@ Runs Applications
 
 
 # 📦 Embedded Linux: System Images & Custom Software Development
+<img width="1920" height="1080" alt="Screenshot 2025-08-01 151055" src="https://github.com/user-attachments/assets/91df3235-7c63-4fc6-8e6b-88ca61ca2eb6" />
 
 ## 🧩 Overview
 
@@ -196,6 +198,8 @@ Start Init Process → Start Services & Apps
 - All images are generated using **cross-compilation** on a host PC (e.g., Ubuntu).
 - **Devicetree** is typically loaded by the bootloader along with the kernel.
 
+<img width="1920" height="1080" alt="Screenshot 2025-08-01 153412" src="https://github.com/user-attachments/assets/bcc9e5d9-7085-4e7b-8dc4-068fbc918944" />
+
 # 🧠 Central Component: Processor
 
 The processor (typically ARM in embedded systems like Raspberry Pi) is the brain of the system.
@@ -274,7 +278,11 @@ It directly communicates with all hardware components through buses and controll
    ↓
 [User-space apps run using hardware interfaces]
 ```
+
+
+
 # 🐧 How Linux Boots – Simplified Explanation
+<img width="1920" height="1080" alt="Screenshot 2025-08-01 160500" src="https://github.com/user-attachments/assets/a670323d-372d-4770-bfda-35cc0a32a4a1" />
 
 ---
 
@@ -373,6 +381,7 @@ Bootloader is typically divided into two parts:
 - Optimize bootloader configuration (e.g., U-Boot script).
 
 ## 🧠 How Raspberry Pi Boots from SD Card
+<img width="1920" height="1080" alt="Screenshot 2025-08-01 161353" src="https://github.com/user-attachments/assets/effc9c71-7948-46b2-89d1-81761a2fa3dc" />
 
 ### 🔹 1. First Stage – EEPROM (ROM Bootloader)
 Raspberry Pi has a small ROM in EEPROM.
