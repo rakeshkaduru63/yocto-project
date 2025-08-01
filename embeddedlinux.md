@@ -372,5 +372,50 @@ Bootloader is typically divided into two parts:
 - Use fast storage (eMMC over SD).
 - Optimize bootloader configuration (e.g., U-Boot script).
 
+## 🧠 How Raspberry Pi Boots from SD Card
+
+### 🔹 1. First Stage – EEPROM (ROM Bootloader)
+Raspberry Pi has a small ROM in EEPROM.
+
+This stage initializes hardware and loads the second-stage bootloader from the SD card (`bootcode.bin`).
+
+### 🔹 2. Second Stage – `bootcode.bin`
+Found in the boot partition (FAT32).
+
+Loads a GPU firmware binary called `start.elf`.
+
+### 🔹 3. Third Stage – `start*.elf`
+Initializes the GPU firmware.
+
+Reads `config.txt` (user-defined settings).
+
+Then optionally launches **U-Boot** (if configured).
+
+### 🔹 (Optional) U-Boot
+A flexible bootloader used in embedded systems.
+
+Loads:
+- `boot.scr` (boot script file)
+- `kernel8.img` (ARM64 kernel image)
+
+### 🔹 4. Kernel Boot
+After U-Boot (or directly from `start.elf`), the kernel image is loaded.
+
+Kernel then mounts the root filesystem (`rootfs`).
+
+### 🔹 Final: Dom0 (Linux OS User Space)
+Kernel passes control to user space.
+
+Loads `init` process → full OS boots.
+
+---
+
+### 🔧 Files You’ll See on the Boot Partition
+- `bootcode.bin` → second stage
+- `start.elf`, `start4.elf`, etc. → third stage GPU firmware
+- `config.txt` → boot configuration
+- `cmdline.txt` → kernel boot parameters
+- `kernel8.img` → ARM64 kernel
+- `boot.scr` → optional U-Boot script
 
 
