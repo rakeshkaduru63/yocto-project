@@ -196,4 +196,84 @@ Start Init Process → Start Services & Apps
 - All images are generated using **cross-compilation** on a host PC (e.g., Ubuntu).
 - **Devicetree** is typically loaded by the bootloader along with the kernel.
 
+# 🧠 Central Component: Processor
+
+The processor (typically ARM in embedded systems like Raspberry Pi) is the brain of the system.
+
+It directly communicates with all hardware components through buses and controllers.
+
+---
+
+# 🧩 Connected Hardware Components
+
+## 1. Memory (RAM)
+- Volatile storage used by the processor to run the operating system and applications.
+- Connected directly to the processor with a high-speed memory bus.
+
+## 2. Storage (Non-Volatile)
+- Types: **eMMC**, **Flash**, **SD Card**
+- Used to store:
+  - Bootloader
+  - Kernel image
+  - Root filesystem
+- Content persists after power-off.
+
+## 3. Power Regulators & PMIC
+- Power Management IC (PMIC) controls power distribution.
+- Ensures proper voltage levels to all parts of the board.
+
+## 4. I2C Bus Controller
+- Used to communicate with low-speed peripherals (sensors, RTC, etc.)
+- I2C: Two-wire protocol (SCL, SDA)
+
+## 5. SPI Controller
+- Serial Peripheral Interface for fast communication with devices like flash memory, display drivers.
+- SPI: Four-wire protocol (MOSI, MISO, SCLK, SS)
+
+## 6. GPIO Controller & Mux
+- General Purpose Input/Output
+- Used for buttons, LEDs, and custom I/O
+- GPIO pins can be multiplexed for different functions.
+
+## 7. Ethernet Controller
+- Handles network data.
+- Connected to the Ethernet port for LAN/WAN connectivity.
+
+## 8. HDMI Controller
+- Sends video signals to HDMI port (for display/monitor).
+
+## 9. Sound Codec Chip
+- Converts digital audio signals to analog (for headphones, speakers)
+- Often works with I2S interface.
+
+## 10. USB Controller
+- Controls USB communication for:
+  - USB keyboards, mice
+  - Flash drives
+  - Cameras
+
+## 11. PCIe Controller
+- Connects high-speed peripherals like Wi-Fi cards, NVMe SSDs.
+
+## 12. Wi-Fi / Bluetooth Module
+- May be connected via PCIe, SDIO, or USB.
+- Enables wireless communication.
+
+---
+
+# 🔁 Summary Flow
+
+```
+[Power ON]
+   ↓
+[Processor initializes via Bootloader]
+   ↓
+[Processor loads Kernel from Storage (via Bus Controller)]
+   ↓
+[Kernel accesses Memory, Devices via I2C, SPI, GPIO, etc.]
+   ↓
+[User-space apps run using hardware interfaces]
+```
+
+
 
