@@ -84,3 +84,116 @@ Runs Applications
 | User Space   | Run applications and services       |
 
 
+
+# 📦 Embedded Linux: System Images & Custom Software Development
+
+## 🧩 Overview
+
+Embedded Linux development involves creating several system images (binaries) that work together to boot and run Linux on target hardware like the Raspberry Pi.
+
+---
+
+## 🔧 Development Flow
+
+```
+Source Code → Cross-Compilation → Image Generation → Flash to Board
+```
+
+### 🔨 Toolchain
+
+- Compiler + Tools for target architecture (e.g., `arm-linux-gcc`)
+- Converts source code into binaries for the target system.
+
+### 🏗️ Build System
+
+- Examples: **Yocto**, **Buildroot**
+- Automates image creation:
+  - Bootloader
+  - Kernel
+  - Root filesystem
+  - Firmware
+
+---
+
+## 📦 Types of Images
+
+### 1. Bootloader Image
+
+- **Example**: U-Boot
+- **Function**:
+  - Initializes CPU, RAM, clocks.
+  - Loads the kernel and device tree into memory.
+  - Passes control to the Linux kernel.
+- **Note**: Some boards (e.g., Raspberry Pi 5) include a primary bootloader in EEPROM or ROM.
+
+### 2. Linux Kernel Image
+
+- **Format**: `zImage`, `uImage`, or `Image`
+- **Function**:
+  - Manages hardware, memory, and processes.
+  - Offers system calls to user space.
+  - Loads device drivers.
+
+### 3. Root Filesystem (rootfs) Image
+
+- **Contents**:
+  - BusyBox, shell, utilities
+  - `/bin`, `/lib`, `/etc`, `/usr`, etc.
+  - Custom applications and services
+- **Format**: `ext4`, `squashfs`, `cpio`
+
+### 4. Firmware Binaries
+
+- **Purpose**: Provide support for peripherals (e.g., Bluetooth, Wi-Fi)
+- **Files**: Typically `.bin` (binary-only)
+- **Example**: Bluetooth firmware blob for Raspberry Pi
+
+---
+
+## 🔁 Boot Sequence
+
+```
+Power ON
+  ↓
+Primary Bootloader (ROM or EEPROM)
+  ↓
+Secondary Bootloader (e.g., U-Boot)
+  ↓
+Load Kernel Image + Devicetree
+  ↓
+Mount Root Filesystem
+  ↓
+Start Init Process → Start Services & Apps
+```
+
+---
+
+## 🗂️ Source Code Breakdown
+
+| Component               | Source Path                      |
+|------------------------|----------------------------------|
+| Bootloader (U-Boot)    | `u-boot/`                        |
+| Kernel Source Code     | `linux/`                         |
+| User Apps & Libraries  | `project/app`, `3rdparty/libs`  |
+| Firmware Binaries      | Provided externally (`*.bin`)   |
+
+---
+
+## ✅ Summary Table
+
+| Image Type      | Purpose                                  |
+|-----------------|-------------------------------------------|
+| Bootloader      | Initialize and load kernel               |
+| Linux Kernel    | Manage hardware, provide system calls    |
+| Root Filesystem | Provide userspace environment            |
+| Firmware        | Support specific peripherals             |
+
+---
+
+## 💡 Notes
+
+- Flashing is done to **SD card**, **eMMC**, or other storage.
+- All images are generated using **cross-compilation** on a host PC (e.g., Ubuntu).
+- **Devicetree** is typically loaded by the bootloader along with the kernel.
+
+
