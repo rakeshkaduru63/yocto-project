@@ -9,7 +9,7 @@ These are essential components required to boot and run Linux on a target board 
 - First component to run after power-on/reset.
 - Initializes hardware (CPU, RAM).
 - Loads the kernel image and device tree into memory.
-- Passes control to the kernel.
+  
 
 ### ◼ Devicetree
 - Describes the hardware layout to the kernel (CPU, memory, peripherals).
