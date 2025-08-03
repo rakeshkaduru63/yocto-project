@@ -1,4 +1,5 @@
-<img width="1920" height="1080" alt="Screenshot 2025-08-01 095441" src="https://github.com/user-attachments/assets/234503d2-e2f0-4921-8546-4527e6c0fc63" />
+<img width="1476" height="892" alt="Screenshot 2025-08-03 150938" src="https://github.com/user-attachments/assets/924c887c-e37a-46fa-96f1-0bd0175a97a0" />
+
 
 # Embedded Linux Architecture Overview
 
