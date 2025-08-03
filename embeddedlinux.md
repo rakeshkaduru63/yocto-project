@@ -285,7 +285,8 @@ It directly communicates with all hardware components through buses and controll
 
 
 # 🐧 How Linux Boots – Simplified Explanation
-<img width="1920" height="1080" alt="Screenshot 2025-08-01 160500" src="https://github.com/user-attachments/assets/a670323d-372d-4770-bfda-35cc0a32a4a1" />
+<img width="1254" height="712" alt="Screenshot 2025-08-03 150729" src="https://github.com/user-attachments/assets/8c549d1b-a9cd-4920-9ede-b7c4a106eef7" />
+
 
 ---
 
@@ -384,7 +385,8 @@ Bootloader is typically divided into two parts:
 - Optimize bootloader configuration (e.g., U-Boot script).
 
 ## 🧠 How Raspberry Pi Boots from SD Card
-<img width="1920" height="1080" alt="Screenshot 2025-08-01 161353" src="https://github.com/user-attachments/assets/effc9c71-7948-46b2-89d1-81761a2fa3dc" />
+<img width="1295" height="690" alt="Screenshot 2025-08-03 150912" src="https://github.com/user-attachments/assets/6a9cf491-cbb7-46f0-879d-f4eeb1926f10" />
+
 
 ### 🔹 1. First Stage – EEPROM (ROM Bootloader)
 Raspberry Pi has a small ROM in EEPROM.
