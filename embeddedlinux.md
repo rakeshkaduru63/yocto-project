@@ -199,7 +199,9 @@ Start Init Process → Start Services & Apps
 - All images are generated using **cross-compilation** on a host PC (e.g., Ubuntu).
 - **Devicetree** is typically loaded by the bootloader along with the kernel.
 
-<img width="1920" height="1080" alt="Screenshot 2025-08-01 153412" src="https://github.com/user-attachments/assets/bcc9e5d9-7085-4e7b-8dc4-068fbc918944" />
+
+<img width="1335" height="749" alt="Screenshot 2025-08-03 150709" src="https://github.com/user-attachments/assets/83b20d74-8c24-41f0-87f7-b8c534d81dc1" />
+
 
 # 🧠 Central Component: Processor
 
