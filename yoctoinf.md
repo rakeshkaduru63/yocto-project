@@ -150,3 +150,48 @@ The license under which Poky is distributed (usually MIT).
 
 - Also includes licenses for components from other projects.
 
+
+
+# Filesystem and Archive Formats in Linux
+
+## 🔹 1. ext4 (Fourth Extended Filesystem)
+- **Type**: Disk Filesystem  
+- **Use**: For regular storage partitions (like hard disks, SD cards)  
+- **Purpose**: Read/Write filesystem for normal operation.  
+- **Commonly Used In**:
+  - Root filesystem in desktops and servers  
+  - SD cards in Raspberry Pi, etc.  
+- **Features**:
+  - Journaling (protects from corruption)  
+  - Large file support  
+  - Fast access  
+
+---
+
+## 🔹 2. squashfs (Squashed Filesystem)
+- **Type**: Read-only Compressed Filesystem  
+- **Use**: Used in embedded systems and live CDs  
+- **Purpose**: Save space by compressing root filesystem  
+- **Commonly Used In**:
+  - Yocto Linux images (`rootfs.squashfs`)  
+  - Live Linux distributions (like Ubuntu Live CD)  
+  - Firmware images  
+- **Features**:
+  - Read-only  
+  - High compression  
+  - Small size, good for embedded systems  
+
+---
+
+## 🔹 3. cpio (Copy In/Out Archive)
+- **Type**: Archive Format (like `.zip`, `.tar`)  
+- **Use**: Packing files for `initramfs` / `initrd`  
+- **Purpose**: Temporary root filesystem used during boot  
+- **Commonly Used In**:
+  - Initial RAM Disk (`initramfs`)  
+  - Kernel packaging  
+- **Features**:
+  - Simple archive format  
+  - Often used by the Linux kernel for early boot files  
+  - Usually seen as `initramfs.cpio.gz`  
+
