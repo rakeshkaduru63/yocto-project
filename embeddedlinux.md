@@ -88,7 +88,7 @@ Runs Applications
 
 
 # 📦 Embedded Linux: System Images & Custom Software Development
-<img width="1920" height="1080" alt="Screenshot 2025-08-01 151055" src="https://github.com/user-attachments/assets/91df3235-7c63-4fc6-8e6b-88ca61ca2eb6" />
+<img width="1364" height="758" alt="Screenshot 2025-08-03 150953" src="https://github.com/user-attachments/assets/db945314-e6cc-41a3-b50d-ff313373e8b2" />
 
 ## 🧩 Overview
 
