@@ -1,7 +1,7 @@
 
 # What is an Embedded System?
 
-An **embedded system** is a combination of **software and hardware** designed to perform a **specific function or task** within a larger system   hi.
+An **embedded system** is a combination of **software and hardware** designed to perform a **specific function or task** within a larger system .
 
 ---
 
