@@ -2,11 +2,15 @@
 
 ## What is BitBake?
 BitBake is a build engine that performs tasks such as:
-- Fetching
-- Unpacking
-- Compiling
-- Packaging
-- Generating final images
+Fetching → Getting the required source files or packages.
+
+Unpacking → Extracting the downloaded files.
+
+Compiling → Converting source code into binary/executable form.
+
+Packaging → Combining compiled files into installable packages.
+
+Generating final images → Creating the complete bootable OS image (kernel + root filesystem + packages).
 
 It reads **recipes** and generates the final system image.
 
